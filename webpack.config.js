@@ -1,5 +1,27 @@
 const webpack = require('webpack');
 const path = require('path');
+
+module.exports = {
+  entry: './src/js/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    loaders: [
+        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+    ]
+  }
+};
+...
+"babel":{
+  "presets": [
+    "env",
+    "react"
+  ]
+},
+...
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
